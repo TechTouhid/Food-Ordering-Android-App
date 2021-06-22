@@ -62,6 +62,25 @@ public class DBHelper extends SQLiteOpenHelper {
             return true;
         }
     }
+    public boolean updateOrder(String name, String phone, int price, int image, int quantity, String desc, String foodName, int id) {
+        SQLiteDatabase db = getReadableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put("name", name);
+        values.put("phone", phone);
+        values.put("price", price);
+        values.put("image", image);
+        values.put("description", desc);
+        values.put("foodname", foodName);
+        values.put("quantity", quantity);
+
+        long row = db.update("orders", values, "id=" + id, null);
+        if (row <= 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 
     public ArrayList<OrdersModel> getOrders() {
         ArrayList<OrdersModel> orders = new ArrayList<>();
@@ -82,5 +101,16 @@ public class DBHelper extends SQLiteOpenHelper {
         cursor.close();
         db.close();
         return orders;
+    }
+
+    public Cursor getOrderById(int id) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("Select * from orders where id = " + id, null);
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+        return cursor;
     }
 }
