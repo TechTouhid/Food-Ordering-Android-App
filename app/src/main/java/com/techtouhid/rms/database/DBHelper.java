@@ -113,4 +113,9 @@ public class DBHelper extends SQLiteOpenHelper {
         }
         return cursor;
     }
+
+    public int deleteOrder(String id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete("orders", "id=" + id, null);
+    }
 }
