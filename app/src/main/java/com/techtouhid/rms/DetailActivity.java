@@ -27,6 +27,29 @@ public class DetailActivity extends AppCompatActivity {
             final String name = getIntent().getStringExtra("name");
             final String description = getIntent().getStringExtra("desc");
 
+            binding.add.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int quantity = Integer.parseInt(binding.quantity.getText().toString());;
+                    quantity += 1;
+                    binding.quantity.setText(String.format("%d", quantity));
+                    binding.priceLbl.setText(String.format("%d", price * quantity));
+                }
+            });
+
+            binding.subtract.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int quantity = Integer.parseInt(binding.quantity.getText().toString());
+                    if (quantity > 0) {
+                        quantity = quantity - 1;
+                        binding.quantity.setText(String.format("%d", quantity));
+                        int subtract_price = Integer.parseInt(binding.priceLbl.getText().toString());
+                        binding.priceLbl.setText(String.format("%d", subtract_price - price));
+                    }
+                }
+            });
+
             binding.detailImage.setImageResource(image);
             binding.priceLbl.setText(String.format("%d", price));
             binding.orderdFoodName.setText(name);
@@ -38,7 +61,7 @@ public class DetailActivity extends AppCompatActivity {
                     boolean isInserted = helper.insertOrder(
                             binding.nameBox.getText().toString(),
                             binding.phoneBox.getText().toString(),
-                            price,
+                            Integer.parseInt(binding.priceLbl.getText().toString()),
                             image,
                             Integer.parseInt(binding.quantity.getText().toString()),
                             description,
@@ -73,7 +96,7 @@ public class DetailActivity extends AppCompatActivity {
                             binding.phoneBox.getText().toString(),
                             Integer.parseInt(binding.priceLbl.getText().toString()),
                             image,
-                            1,
+                            Integer.parseInt(binding.quantity.getText().toString()),
                             binding.detailDescription.getText().toString(),
                             binding.orderdFoodName.getText().toString(),
                             id
@@ -85,7 +108,6 @@ public class DetailActivity extends AppCompatActivity {
                     }
                 }
             });
-
 
 
         }
