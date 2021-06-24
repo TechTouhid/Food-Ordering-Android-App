@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   android:background="@drawable/signupscreen"
+                                                   tools:context=".SignUpActivity">
+
+    <EditText
+            android:id="@+id/signupemail"
+            android:layout_width="297dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="260dp"
+            android:background="@drawable/edit_text_background"
+            android:ems="10"
+            android:hint="   Enter Email"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    <EditText
+            android:id="@+id/signupusername"
+            android:layout_width="297dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/edit_text_background"
+            android:ems="10"
+            android:hint="   Enter Username"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signupemail"/>
+
+    <EditText
+            android:id="@+id/siguppassword"
+            android:layout_width="297dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/edit_text_background"
+            android:ems="10"
+            android:hint="   Enter Password"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signupusername"/>
+
+    <Button
+            android:id="@+id/signupbutton"
+            android:layout_width="259dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/btn_background"
+            android:text="Sign Up"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/siguppassword"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
