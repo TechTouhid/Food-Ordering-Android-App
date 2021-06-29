@@ -27,8 +27,11 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<MainModel> list = new ArrayList<>();
 
         list.add(new MainModel(R.drawable.barger, "Burger", "5", "Chicken burger with extra sos"));
-        list.add(new MainModel(R.drawable.pitzza, "Pizza", "10", "Pizza burger with extra sos"));
-        list.add(new MainModel(R.drawable.chinese, "Chinese", "15", "Chinese burger with extra sos"));
+        list.add(new MainModel(R.drawable.pitzza, "Pizza", "10", "Pizza with extra chase so yummy"));
+        list.add(new MainModel(R.drawable.chinese, "Noodles", "15", "Chinese noodles is a famous noodles"));
+        list.add(new MainModel(R.drawable.thai_soup, "Thai", "12", "Thai Soup is very a very delicious soup"));
+        list.add(new MainModel(R.drawable.friedchickenbiryani, "Chicken Biryani", "20", "Chicken Biryani is very famous"));
+        list.add(new MainModel(R.drawable.kfc, "KFC Chicken", "20", "KFC Chicken is very famous in the world"));
 
         MainAdapter adapter = new MainAdapter(list, this);
         binding.recyclerview.setAdapter(adapter);
